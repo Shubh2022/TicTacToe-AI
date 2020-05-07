@@ -9,4 +9,5 @@ All of the function definitions in tictactoe.py was implemented by me.
 
 The AI will never lose, the game will either end in a tie or a loss for the user.
 
+The .ttf file is for font in the GUI
 To use the program you just need to run runner.py.
