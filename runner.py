@@ -1,7 +1,7 @@
 import pygame
 import sys
 import time
-
+from pygame import mouse
 import tictactoe as ttt
 
 pygame.init()
@@ -60,6 +60,7 @@ while True:
             if playXButton.collidepoint(mouse):
                 time.sleep(0.2)
                 user = ttt.X
+                print('y')
             elif playOButton.collidepoint(mouse):
                 time.sleep(0.2)
                 user = ttt.O
@@ -88,7 +89,7 @@ while True:
                     screen.blit(move, moveRect)
                 row.append(rect)
             tiles.append(row)
-
+      
         game_over = ttt.terminal(board)
         player = ttt.player(board)
 
@@ -120,11 +121,13 @@ while True:
 
         # Check for a user move
         click, _, _ = pygame.mouse.get_pressed()
+        
         if click == 1 and user == player and not game_over:
             mouse = pygame.mouse.get_pos()
             for i in range(3):
                 for j in range(3):
                     if (board[i][j] == ttt.EMPTY and tiles[i][j].collidepoint(mouse)):
+                        print('o')
                         board = ttt.result(board, (i, j))
 
         if game_over:
